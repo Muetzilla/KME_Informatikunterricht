@@ -21,7 +21,7 @@ hburgen = [50, 150, 250]
 hoehe_kanone = 10
 g = 9.81
 v0 = 0
-simulationszeit = 13
+simulationszeit = 20
 N = 10_000
 theta = 0
 
@@ -64,5 +64,4 @@ while True:
     plt.ylabel('Höhe (m)')
     plt.title('Kanone schiesst auf Burg')
     plt.legend()
-    plt.axis('equal')
     plt.show()
