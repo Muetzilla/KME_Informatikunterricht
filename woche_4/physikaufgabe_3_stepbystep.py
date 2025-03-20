@@ -14,10 +14,10 @@ def drawCanon(x, y):
     plt.plot(x, y, "o-r", label="Kanone")
 
 
-tiefe = 30
-hoehe = 10
-dburg = 500
-hburg = 50
+tiefen = [30, 50]
+hoehen = [10, 20]
+dburgen = [500, 750]
+hburgen = [50, 150]
 hoehe_kanone = 10
 g = 9.81
 v0 = 0
@@ -42,15 +42,17 @@ while True:
         t = i * simulationszeit / N
         x_wert = v0 * math.cos(theta_bm) * t
         y_wert = v0 * math.sin(theta_bm) * t + (-1 / 2 * g * t ** 2) + hoehe_kanone
-        if (dburg <= x_wert <= dburg + tiefe) and (hburg <= y_wert <= hburg + hoehe):
-            castle_color = "-r"
-            break
+        for i in range(0, len(dburgen)):
+            if (dburgen[i] <= x_wert <= dburgen[i] + tiefen[i]) and (hburgen[i] <= y_wert <= hburgen[i] + hoehen[i]):
+                castle_color = "-r"
+                break
         x_canonball.append(x_wert)
         y_canonball.append(y_wert)
         if y_wert < 0:
             break
 
-    drawCastle(dburg, hburg, tiefe, hoehe, castle_color)
+    for i in range(0, len(dburgen)):
+        drawCastle(dburgen[i], hburgen[i], tiefen[i], hoehen[i], castle_color)
     drawCanon(0, hoehe_kanone)
 
     plt.plot(x_canonball, y_canonball, '-b', linewidth=1.5, label=f'Flugbahn Kanonankugel')
