@@ -1,8 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+g = 9.81
 
-def projectile_motion(initial_velocity, theta, castle_distance=500, castle_height=50, g=9.81):
+
+def projectile_motion(initial_velocity, theta, castle_distance=500, castle_height=50):
     angle_radians = np.radians(theta)
 
     initial_velocity_x = initial_velocity * np.cos(angle_radians)
@@ -36,6 +38,7 @@ def projectile_motion(initial_velocity, theta, castle_distance=500, castle_heigh
     ax.set_ylabel("Höhe (m)")
     ax.set_title("Kanonenschuss auf die Burg")
     ax.legend()
+    plt.axis("equal")
 
     plt.show()
 
