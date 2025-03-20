@@ -1,4 +1,7 @@
 from math import sqrt
+import time
+from matplotlib import pyplot as plt
+
 
 def eratosthenes(num):
     """
@@ -30,6 +33,17 @@ def eratosthenes(num):
 
 
 # Beispielcode
-maximale_zahl = 100
-primzahlen = eratosthenes(maximale_zahl)
-print(primzahlen)
+zahlenwerte = range(10_000, 1000_000, 1_000)
+laufzeiten = []
+for i in range(len(zahlenwerte)):
+    starting_time = time.time()
+    primzahlen = eratosthenes(zahlenwerte[i])
+    stop_time = time.time()
+    laufzeiten.append(stop_time - starting_time)
+
+plt.plot(zahlenwerte, laufzeiten, ".-b", label="Laufzeit in Sekunden")
+plt.title('Laufzeit von Primzahlberechnungen')
+plt.xlabel('Primzahlrange')
+plt.ylabel('Dauer in Sekunden')
+plt.legend()
+plt.show()
