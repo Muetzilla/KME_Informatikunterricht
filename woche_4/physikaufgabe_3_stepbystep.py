@@ -1,4 +1,3 @@
-# Wurfbewegung 3
 import math
 import matplotlib.pyplot as plt
 from math import radians
@@ -8,6 +7,7 @@ def drawCastle(x, y, tiefe, hoehe, color, num):
     x = [x, x + tiefe, x + tiefe, x, x]
     y = [y, y, y + hoehe, y + hoehe, y]
     plt.plot(x, y, color, linewidth=2, label=f'Burg {num}')
+  #  plt.text(int(x + tiefe / 2), int(y + hoehe / 2), f"Burg {num}")
 
 
 def drawCanon(x, y):
